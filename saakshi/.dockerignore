@@ -1,0 +1,10 @@
+.env
+**/.env
+**/.venv
+**/node_modules
+**/__pycache__
+web/dist
+backend/data
+backend/tests
+backend/scripts
+**/.DS_Store

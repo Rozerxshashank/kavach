@@ -1,0 +1,43 @@
+# Kavach (the product) and Saakshi (the voice agent it protects), on one free VM.
+#   1. cp .env.example .env and fill it in (two domains: <vm-ip>.sslip.io works without buying one, e.g.
+#      KAVACH_DOMAIN=kavach.203.0.113.7.sslip.io and SAAKSHI_DOMAIN=saakshi.203.0.113.7.sslip.io)
+#   2. open ports 80 and 443 on the VM
+#   3. docker compose up -d --build
+# Caddy gets free HTTPS certificates for both. The apps talk to each other on the private network:
+# Kavach -> Saakshi's test harness, and Saakshi -> Kavach Shield on every call.
+services:
+  kavach:
+    build: ./kavach-redteam
+    env_file: .env
+    environment:
+      KAVACH_SAAKSHI_URL: http://saakshi:8100
+      KAVACH_PUBLIC_URL: https://${KAVACH_DOMAIN:?set KAVACH_DOMAIN in .env}
+    volumes:
+      - kavach-data:/data
+    restart: unless-stopped
+  saakshi:
+    build: ./saakshi
+    env_file: .env
+    environment:
+      KAVACH_SHIELD_URL: http://kavach:8000
+      SAAKSHI_PUBLIC_URL: https://${SAAKSHI_DOMAIN:?set SAAKSHI_DOMAIN in .env}
+    volumes:
+      - saakshi-data:/data
+    restart: unless-stopped
+  caddy:
+    image: caddy:2.8.4
+    environment:
+      KAVACH_DOMAIN: ${KAVACH_DOMAIN}
+      SAAKSHI_DOMAIN: ${SAAKSHI_DOMAIN}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on: [kavach, saakshi]
+    restart: unless-stopped
+volumes:
+  kavach-data:
+  saakshi-data:
+  caddy-data:

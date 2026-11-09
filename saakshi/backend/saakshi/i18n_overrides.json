@@ -1,0 +1,9 @@
+{
+ "kn-IN": {
+  "{worker} says they did {work} for you, and you paid them {runs}. Is that right?": "{worker} ಅವರ ಪ್ರಕಾರ, ಅವರು ನಿಮ್ಮ ಮನೆಯಲ್ಲಿ {work} ಮಾಡಿದ್ದಾರೆ, ಮತ್ತು ನೀವು ಅವರಿಗೆ {runs} ಕೊಟ್ಟಿದ್ದೀರಿ. ಇದು ಸರಿಯೇ?",
+  "So, is that right?": "ಹಾಗಾದರೆ, ಇದು ಸರಿಯೇ?"
+ },
+ "ml-IN": {
+  "{worker} says they did {work} for you, and you paid them {runs}. Is that right?": "{worker} പറയുന്നത്, അവർ നിങ്ങൾക്കായി {work} ചെയ്തു, നിങ്ങൾ അവർക്ക് {runs} നൽകി എന്നാണ്. ഇത് ശരിയാണോ?"
+ }
+}

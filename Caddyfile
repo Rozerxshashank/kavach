@@ -1,0 +1,9 @@
+{$KAVACH_DOMAIN} {
+	encode gzip
+	reverse_proxy kavach:8000
+}
+
+{$SAAKSHI_DOMAIN} {
+	encode gzip
+	reverse_proxy saakshi:8100
+}

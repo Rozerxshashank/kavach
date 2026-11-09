@@ -1,0 +1,21 @@
+# secrets
+.env
+.env.*
+!.env.example
+!**/.env.example
+
+# dependencies and builds
+**/.venv/
+**/node_modules/
+**/web/dist/
+**/__pycache__/
+*.pyc
+
+# runtime data: databases, call audio, backups (never commit)
+**/backend/data/
+*.db
+*.db-wal
+*.db-shm
+
+# local tooling
+.DS_Store

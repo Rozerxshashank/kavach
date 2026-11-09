@@ -1,0 +1,38 @@
+# Render Blueprint: Kavach + Saakshi as one free web service. See deploy/render/Dockerfile.
+services:
+  - type: web
+    name: kavach
+    runtime: docker
+    plan: free
+    region: oregon
+    dockerfilePath: ./deploy/render/Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/health
+    autoDeployTrigger: commit
+    envVars:
+      # secrets: paste them in the Render dashboard (never in this file)
+      - key: GNANI_API_KEY
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: KAVACH_SIGNING_KEY
+        sync: false
+      - key: KAVACH_ADMIN_KEY
+        sync: false
+      - key: SAAKSHI_SIGNING_KEY
+        sync: false
+      - key: SAAKSHI_ADMIN_KEY
+        sync: false
+      - key: SAAKSHI_HARNESS_KEY
+        sync: false
+      - key: KAVACH_SHIELD_KEY
+        sync: false
+      - key: HF_TOKEN
+        sync: false
+      # settings
+      - key: PERSIST_REPO
+        value: rozerxshashank/kavach-data
+      - key: KAVACH_DAILY_ATTACKS
+        value: "40"
+      - key: SAAKSHI_SHIELD
+        value: "on"

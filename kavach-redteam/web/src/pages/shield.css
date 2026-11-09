@@ -1,0 +1,73 @@
+
+.shield-page { padding-bottom: 40px; }
+.sh-hero .display { margin: 18px 0 22px; font-size: clamp(48px, 7.4vw, 112px); }
+.sh-hero .display em { color: var(--ice); }
+.sh-hero .lede { max-width: 62ch; }
+.sh-stats { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); margin-top: 48px; border-top: 1px solid var(--line-2); }
+.sh-stats > div { display: grid; gap: 6px; padding: 18px 16px 0 0; }
+.sh-stats .num { font-size: clamp(34px, 4vw, 56px); line-height: 1; }
+.sh-stats small { font-size: .45em; margin-left: 2px; }
+@media (max-width: 860px) { .sh-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+.sh-play-grid { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 16px; }
+@media (max-width: 920px) { .sh-play-grid { grid-template-columns: 1fr; } }
+.sh-console { display: grid; gap: 14px; padding: 16px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--ink-2); }
+.sh-lines { display: grid; gap: 12px; max-height: 460px; overflow-y: auto; padding: 4px 2px; }
+.sh-line { display: grid; gap: 6px; padding: 10px 12px; border-radius: 8px; background: var(--ink-3); border: 1px solid var(--line); border-left: 3px solid var(--ember); font-size: 13px; }
+.sh-line.outbound, .sh-line.action { border-left-color: var(--ice); }
+.sh-line p { margin: 0; line-height: 1.5; overflow-wrap: anywhere; }
+.sh-safe { color: var(--held); font-size: 13.5px; }
+.sh-guide { color: var(--fg-2); font-size: 13px; }
+.sh-dir button { flex: 1; }
+.sh-input { display: flex; gap: 8px; flex-wrap: wrap; }
+.sh-input input, .sh-input select { flex: 1; min-width: 180px; height: 36px; border-radius: 8px; border: 0; padding: 0 14px; background: var(--ink-3);
+  color: var(--fg); box-shadow: inset 0 0 0 1px var(--line-2); font: inherit; }
+.sh-input input:focus { outline: none; box-shadow: inset 0 0 0 1px var(--ice); }
+.sh-examples { display: flex; flex-wrap: wrap; gap: 6px; }
+.sh-examples button { font-size: 12.5px; padding: 6px 10px; border-radius: 999px; box-shadow: inset 0 0 0 1px var(--line-2); color: var(--fg-2); text-align: left; max-width: 100%; }
+.sh-examples button:hover:not(:disabled) { color: var(--fg); box-shadow: inset 0 0 0 1px var(--ice); }
+.sh-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.sh-state { padding: 16px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--ink-2); align-self: start; position: sticky; top: 70px; }
+.sh-gauge { height: 12px; border-radius: 6px; background: var(--ink-4); position: relative; overflow: hidden; margin: 12px 0 10px; }
+.sh-gauge i { position: absolute; inset: 0 auto 0 0; background: linear-gradient(90deg, var(--ice), var(--amber) 55%, var(--breach)); transition: width .6s var(--ease); }
+.sh-risk { font-size: 40px; font-weight: 650; line-height: 1; color: var(--ice); }
+.sh-claims { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+
+.sh-flow { list-style: none; margin: 0 0 14px; padding: 0; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px; }
+.sh-flow li { display: grid; gap: 4px; align-content: start; padding: 12px; border-radius: 8px; border: 1px solid var(--line); background: var(--ink-3); position: relative; }
+.sh-flow li .mono { font-size: 10.5px; color: var(--fg-3); text-transform: uppercase; letter-spacing: .1em; }
+.sh-flow li b { font-weight: 600; font-size: 14px; }
+.sh-flow li small { color: var(--fg-3); font-size: 12px; line-height: 1.4; }
+.sh-flow li.hit { border-color: var(--ice); background: var(--ice-soft); }
+.sh-flow li.hit .mono, .sh-flow li.hit b { color: var(--ice); }
+@media (max-width: 1100px) { .sh-flow { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (max-width: 620px) { .sh-flow { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.sh-code { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.sh-code .seg { padding: 10px 12px; border-bottom: 1px solid var(--line); background: var(--ink-2); }
+.sh-code pre { margin: 0; padding: 18px; overflow-x: auto; font: 12.5px/1.65 var(--mono); color: var(--fg-2); background: var(--ink); }
+
+.sh-proof-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; margin-top: 28px; }
+.sh-proof-card { display: grid; gap: 6px; padding: 18px; border-radius: 14px; border: 1px solid var(--line); transition: border-color .2s; }
+.sh-proof-card:hover { border-color: var(--ice); }
+.sh-proof-obj { font-family: var(--serif); font-size: 24px; }
+.sh-proof-row { display: flex; align-items: center; gap: 18px; margin-top: 6px; }
+.sh-proof-row > span { display: grid; }
+.sh-proof-row .num { font-size: 48px; line-height: 1; }
+.sh-proof-row .arrow-big { font-family: var(--serif); font-size: 32px; color: var(--fg-3); }
+
+.sh-pol-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 14px; margin-top: 28px; }
+.sh-pol { padding: 16px; border-radius: var(--radius); border: 1px solid var(--line); background: var(--ink-2); display: grid; gap: 8px; align-content: start; }
+.sh-pol dl { margin: 8px 0 0; display: grid; }
+.sh-pol dl > div { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 12px; padding: 8px 0; border-top: 1px solid var(--line); font-size: 13px; }
+.sh-pol dt { color: var(--fg-3); }
+.sh-pol dd { margin: 0; color: var(--fg-2); overflow-wrap: anywhere; }
+
+.sh-call-list { list-style: none; margin: 18px 0 0; padding: 0; }
+.sh-call-list li { display: grid; grid-template-columns: 90px minmax(0, 1fr) 160px 110px 120px; align-items: center; gap: 14px; padding: 11px 0; border-top: 1px solid var(--line); }
+@media (max-width: 760px) { .sh-call-list li { grid-template-columns: 1fr auto; } .sh-call-list li > :nth-child(1), .sh-call-list li > :nth-child(5) { display: none; } }
+.sh-dots { display: flex; gap: 3px; flex-wrap: wrap; }
+.sh-dots i { width: 8px; height: 8px; border-radius: 50%; background: var(--held); }
+.sh-dots i.challenge, .sh-dots i.rewrite { background: var(--amber); }
+.sh-dots i.escalate, .sh-dots i.block, .sh-dots i.deny { background: var(--breach); }
+.sh-keys .sh-input { margin-top: 18px; }
+.sh-fresh { margin-top: 14px; padding: 12px 14px; border-radius: 10px; background: var(--held-soft); color: var(--held); overflow-wrap: anywhere; }
